@@ -44,7 +44,7 @@ const ChatWindow = ({ onClose }) => {
 
             apiMessages.push({ role: 'user', content: userText });
 
-            const response = await fetch('http://localhost:3000/api/chat', {
+            const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ messages: apiMessages, sessionId }),
@@ -125,7 +125,7 @@ const ChatWindow = ({ onClose }) => {
             }));
 
             // Generate and send requirements document
-            const response = await fetch('http://localhost:3000/api/generate-requirements', {
+            const response = await fetch('/api/generate-requirements', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
