@@ -1,0 +1,294 @@
+.about-section {
+    padding: 100px 5%;
+    background: #050505;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gradient line at top to connect with Hero */
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+}
+
+.about-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Image Section */
+.about-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.image-glow {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.image-frame {
+    position: relative;
+    z-index: 1;
+    width: 320px;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: grayscale(10%);
+    transition: filter 0.5s, transform 0.5s;
+}
+
+.image-frame:hover .about-photo {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Floating Cards */
+.floating-card {
+    position: absolute;
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    backdrop-filter: blur(10px);
+}
+
+.card-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-text {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.card-exp {
+    top: 10px;
+    right: -20px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.card-projects {
+    bottom: 30px;
+    left: -20px;
+    animation: float 7s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Content Section */
+.about-content {
+    max-width: 580px;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 20px;
+    color: var(--accent-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.about-text {
+    margin-bottom: 28px;
+}
+
+.about-text p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 14px;
+}
+
+.about-text strong {
+    color: white;
+}
+
+.about-text .highlight {
+    color: var(--accent-secondary);
+    font-weight: 500;
+}
+
+/* Expertise Grid */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.expertise-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.expertise-item:hover {
+    background: rgba(139, 92, 246, 0.05);
+    border-color: rgba(139, 92, 246, 0.2);
+    transform: translateY(-2px);
+}
+
+.expertise-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.expertise-item h4 {
+    margin: 0 0 2px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.expertise-item p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* CTA */
+.about-cta {
+    display: flex;
+    gap: 14px;
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .about-image-wrapper {
+        order: -1;
+    }
+
+    .about-content {
+        max-width: 100%;
+    }
+
+    .expertise-grid {
+        justify-content: center;
+    }
+
+    .about-cta {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-section {
+        padding: 60px 5%;
+    }
+
+    .about-title {
+        font-size: 1.8rem;
+    }
+
+    .image-frame {
+        width: 260px;
+        height: 340px;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .floating-card {
+        padding: 10px 14px;
+    }
+
+    .card-number {
+        font-size: 1.2rem;
+    }
+}
