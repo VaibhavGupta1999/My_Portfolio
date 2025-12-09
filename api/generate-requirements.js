@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
     // Handle CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -61,12 +61,7 @@ Format it professionally with clear headings and bullet points. Be comprehensive
 
         const requirementsDoc = data.choices?.[0]?.message?.content || "Failed to generate requirements";
 
-        // Log the lead (in production, integrate with email service)
-        console.log('\n' + '='.repeat(60));
         console.log('📧 NEW LEAD from:', contactInfo.name, '-', contactInfo.email);
-        console.log('='.repeat(60));
-        console.log(requirementsDoc);
-        console.log('='.repeat(60) + '\n');
 
         return res.status(200).json({
             success: true,
@@ -77,4 +72,4 @@ Format it professionally with clear headings and bullet points. Be comprehensive
         console.error("Generate Requirements Error:", error);
         return res.status(500).json({ error: "Failed to generate requirements" });
     }
-}
+};
